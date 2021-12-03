@@ -53,9 +53,10 @@ const arrayWord = [
 ];
 let lettersUsed = [];
 let wins = 0;
-let trial = 10;
+let trial = 6;
 let currentWord = "";
 let arr = [];
+let parts = ["head", "torso", "arm-l", "arm-r", "leg-l", "leg-r"];
 
 // draw a random word from the board
 function pickWord() {
@@ -125,7 +126,11 @@ function isCharacterInWord (character) {
     if (flag === false) {
         trial = trial - 1;
         showTrial();
-
+        if (parts.length > 0) {
+            let part = document.getElementById(parts[0]);
+            part.style.display = "block";
+            parts.shift();
+        }
         if (trial === 0) {
             document.getElementById('correct').innerHTML = "Perdu ! Le mot était :" + " " + currentWord;
         }
@@ -142,7 +147,7 @@ function blankArrayOnScreen(){
 function resetVariables() {
     lettersUsed = [];
     arr = [];
-    trial = " " + 10;
+    trial = " " + 6;
 }
 
 // see keyboard keys pressed
