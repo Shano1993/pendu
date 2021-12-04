@@ -65,7 +65,6 @@ function pickWord() {
 }
 
 // the word drawn in the table
-
 function currentWordOnScreen() {
     let space = arr.join(" ");
     document.getElementById("word").innerHTML = space;
@@ -148,6 +147,7 @@ function resetVariables() {
     lettersUsed = [];
     arr = [];
     trial = " " + 6;
+    document.getElementById('correct').innerHTML = " ";
 }
 
 // see keyboard keys pressed
@@ -164,6 +164,7 @@ function startGame() {
     showTrial();
     showLettersUsed();
     showWins();
+    isCharacterInWord();
 }
 document.getElementById('easy').addEventListener("click", function () {
     startGame();
